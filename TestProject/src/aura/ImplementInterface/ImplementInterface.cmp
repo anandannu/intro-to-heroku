@@ -1,0 +1,5 @@
+<aura:component implements="c:FirstInterface,c:SecondInterface">
+
+    This is boolean value :{!v.booleanFlag}<br/>
+    This is string value : {!v.message}	
+</aura:component>

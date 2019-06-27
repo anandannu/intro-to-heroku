@@ -1,0 +1,38 @@
+<aura:component >
+    <aura:attribute name="remoteId" type="Id"/>
+    <aura:attribute name="showDialoge" type="String" default="false"/>
+    <aura:attribute name="selectedCase" type="Case"/>
+    
+    <aura:handler name="change" value="{!v.showDialoge}" action="{!c.toggleDialoge}"/>
+    <aura:handler name="change" value="{!v.remoteId}" action="{!c.getCaseRecord}"/>
+    
+    <force:recordData aura:id="editcaserecord"
+                      targetRecord="{!v.selectedCase}"
+                      fields="CaseNumber,SuppliedName,SuppliedPhone,SuppliedEmail"
+                      mode="EDIT"/>
+    
+     <div class="demo-only" style="height: 640px;">
+        <section aura:id="dialogShow" role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal ">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        <lightning:icon iconName="utility:close" title="record" onclick="{!c.toggleDialoge}"/>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Case Edit</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    case No.<lightning:formattedtext aura:id="newCaseNumber" label="Case Number" value="{!v.selectedCase.fields.CaseNumber.value}"/>
+                    <lightning:input aura:id="newSuppliedName" label="Supplied Name" value="{!v.selectedCase.fields.SuppliedName.value}"/>
+                    <lightning:input aura:id="newSuppliedPhone" label="Supplied Phone" value="{!v.selectedCase.fields.SuppliedPhone.value}"/>
+                    <lightning:input aura:id="newSuppliedEmail" label="Supplied Email" value="{!v.selectedCase.fields.SuppliedEmail.value}"/>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick="{!c.toggleDialoge}">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick="{!c.saveRecord}">Save</button>
+                </footer>
+            </div>
+        </section>
+        <div aura:id="bgShow" class="slds-backdrop "></div>
+    </div>
+</aura:component>

@@ -1,0 +1,24 @@
+<apex:page >
+    <apex:includeLightning />
+    
+    <div id="vf_contain">
+        
+    </div>
+    <script>
+        $lightning.use("c.exploreDestinationPage",function(){
+            $Lightning.createComponent("c.exploreBoardCast",{},"vf_contain", function(){
+                $A.eventService.addHandler({
+                	"event":"c.myDataTransfer",
+                    "handler":footbar
+                })
+            });
+        });
+    </script>
+    <script> 
+     var footbar = function (event){
+         var mes = event.getParam("message");
+         alert(mes);
+     }
+	    
+    </script>
+</apex:page>

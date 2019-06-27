@@ -1,0 +1,62 @@
+<aura:component controller="OppApex" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="contacts" type="contact[]"/>
+    <aura:attribute name="contactList" type="list" /> 
+    <aura:attribute name="isSelectAll" type="boolean" default="false"/>
+    <lightning:button variant="brand" label="Show Contact" onclick="{!c.ShowContact}" />
+    
+    <div class="slds-m-around_xx-large">
+        <h1 class="slds-text-heading--medium">Contacts</h1>
+        <br/>
+        <!--Contact List Table-->
+        <table class="slds-table slds-table--bordered slds-table--cell-buffer" role="grid">      
+            <thead>  
+                <tr class="slds-text-title--caps">
+                    <th>           
+                        <label class="slds-checkbox">
+                            <ui:inputCheckbox value="{!v.isSelectAll}" change="{!c.handleSelectAllContact}" aura:id="selectAll"/>
+                            <span class="slds-checkbox--faux" />
+                            <span class="slds-form-element__label"></span>
+                        </label>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Name">Name frt</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Account">Email</div>
+                    </th>
+                    
+                    <th scope="col">
+                        <div class="slds-truncate" title="Phone">Role</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>        
+                <aura:iteration items="{!v.contacts}" var="con">
+                    <tr>
+                        <th>
+                            <label class="slds-checkbox">
+                                <ui:inputCheckbox aura:id="checkContact" value="" text="{!con.Id}"/>
+                                <span class="slds-checkbox--faux" />
+                                <span class="slds-form-element__label"></span>
+                            </label>
+                        </th>
+                        <th scope="row">
+                            <div class="slds-truncate" title="{!con.LastName}">{!con.LastName}</div>
+                        </th>
+                        <td>
+                            <div class="slds-truncate" title="{!con.Email}">{!con.Email}</div>
+                        </td> 
+                        <td>
+                            <lightning:input type="Text" aura:id="conRole" onchange="{!c.textChange}"  value="" label="Enter a Text" />
+                        </td> 
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <div>
+            <br/>
+            <lightning:button label="Submit" class="slds-button_brand" onclick="{!c.UpdateRole}"/>
+        </div>
+    </div>
+</aura:component>

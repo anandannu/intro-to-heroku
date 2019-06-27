@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="message" type="String"/>
+    <c:exploreApplicationOne/>
+    <c:exploreApplicationTwo message="{!v.message}"/>
+    
+    {!v.message}
+</aura:component>

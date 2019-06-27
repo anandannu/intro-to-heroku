@@ -1,0 +1,91 @@
+<aura:component controller="customLeadController" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    <aura:handler name="init" value="{!this}" action="{!C.MyLead}"/>
+     <aura:handler name="init" value="{!this}" action="{!c.MyUser}"/>
+    
+    <aura:attribute name="LeadData" type="Lead[]"/>
+    <aura:attribute name="UserData" type="User[]"/>
+    <center><div class="slds-text-heading_large">All information about User and Lead</div></center>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <span>
+            	<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="User Name">User Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="User Id">User Id</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Email">Email</div>
+                    </th>                
+                </tr>
+            </thead>
+            <tbody>
+              <aura:iteration items="{!v.UserData}" var="u">  
+                <tr class="slds-hint-parent">
+                    <th data-label="Opportunity Name" scope="row">
+                        <div class="slds-truncate" title="User Name">
+                            <a href="javascript:void(0);" tabindex="-1">{!u.Name}</a>
+                        </div>
+                    </th>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="User Id">{!u.Id}</div>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="User Email">{!u.Email}</div>
+                    </td>
+                </tr>
+               </aura:iteration>
+            </tbody>
+        </table>
+            
+            </span>
+        </div>
+        <div class="slds-col">
+            <span>
+            	<table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Lead FirstName">FirstName</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Lead LastName">LastName</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Company">Company</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" title="Email">Email</div>
+                    </th>                   
+                </tr>
+            </thead>
+            <tbody>
+              <aura:iteration items="{!v.LeadData}" var="Lead">  
+                <tr class="slds-hint-parent">
+                    <th data-label="Opportunity Name" scope="row">
+                        <div class="slds-truncate" title="FirstName">
+                            <a href="javascript:void(0);" tabindex="-1">{!Lead.FirstName}</a>
+                        </div>
+                    </th>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="LastName">{!Lead.LastName}</div>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="Company">{!Lead.Company}</div>
+                    </td>
+                    <td data-label="Prospecting">
+                        <div class="slds-truncate" title="Email">{!Lead.Email}</div>
+                    </td>
+                    
+                </tr>
+               </aura:iteration>
+            </tbody>
+        </table>
+            </span>
+        </div>
+    </div>
+  
+</aura:component>

@@ -1,0 +1,12 @@
+<apex:page >
+    <input type="text" id="message"/>
+    <button onclick="sendData()"> Send Data to Cmp </button>
+    
+    <script>
+        var lexorigin = "https://trainingbcg-dev-ed.lightning.force.com";
+    	function sendData() {
+        var mes = document.getElementById('message').value;
+            parent.postMessage(mes,lexorigin);
+        }
+    </script>
+</apex:page>

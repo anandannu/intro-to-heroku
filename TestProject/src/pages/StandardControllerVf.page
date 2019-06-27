@@ -1,0 +1,12 @@
+<apex:page standardController="Account" extensions="standardMethods">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+        	<apex:inputField value="{!Account.Name}"/>
+            <apex:inputField value="{!Account.Rating}"/>
+            <apex:inputField value="{!Account.Region__c}"/>
+        </apex:pageBlockSection>   
+        <apex:commandButton value="Save" action="{!save}"/>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

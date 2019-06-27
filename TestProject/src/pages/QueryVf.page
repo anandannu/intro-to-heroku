@@ -1,0 +1,12 @@
+<apex:page controller="ClassForQuery">
+    <apex:form >
+    <apex:pageBlock >
+    	<apex:inputText value="{!q}"/>
+        <apex:commandButton action="{!Search}" value="Search"/>
+        <apex:pageBlockTable value="{!acc}" var="a">
+        		<apex:column value="{!a.Name}"/>
+                <apex:column value="{!a.Rating}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

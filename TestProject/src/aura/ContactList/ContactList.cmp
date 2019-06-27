@@ -1,0 +1,72 @@
+<aura:component controller="ContactListController">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name="ContactList" type="Contact"/>
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            <lightning:icon iconName="action:add_contact"/>
+                            <span class="slds-assistive-text">opportunity</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">COntact List</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Contact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Contact FirstName">Contact FirstName</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="COntact LastName">Contact LastName</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Record Id">Record Id</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Email">Email</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+           
+                <aura:iteration items="{!v.ContactList}" var="con">
+                    <tr>
+                    <td data-label="Account Name">
+                        <div class="slds-truncate" title="FirstName">{!con.FirstName}</div>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="LastName">{!con.LastName}</div>
+                    </td>
+                    <td data-label="Prospecting">
+                        <div class="slds-truncate" title="Record Id">{!con.Id}</div>
+                    </td>
+                    <td data-label="Confidence">
+                        <div class="slds-truncate" title="Email">{!con.Email}</div>
+                    </td>
+                    </tr>
+                </aura:iteration>               
+         
+        </tbody>
+    </table>
+    
+</aura:component>

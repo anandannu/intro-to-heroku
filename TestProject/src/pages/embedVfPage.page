@@ -1,0 +1,13 @@
+<apex:page standardController="Account" recordSetVar="accounts" lightningStylesheets="true">
+    <apex:slds />
+    <form>
+        <apex:PageBlock >
+           <apex:pageBlockTable value="{!accounts}" var="acc">
+               <apex:column value="{!acc.Name}"/>
+               <apex:column value="{!acc.Id}"/>
+               <apex:column value="{!acc.Industry}"/>
+               <apex:column value="{!acc.Phone}"/>
+           </apex:pageBlockTable>
+        </apex:PageBlock>
+    </form>
+</apex:page>

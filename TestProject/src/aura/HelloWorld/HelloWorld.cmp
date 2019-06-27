@@ -1,0 +1,4 @@
+<aura:component >
+	<p>This is my first lightning page</p>
+    <c:HelloMessage message="123"/>
+</aura:component>

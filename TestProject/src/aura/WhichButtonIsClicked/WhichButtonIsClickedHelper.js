@@ -1,0 +1,5 @@
+({
+	CommonFunction : function(component, event) {
+    
+	},
+})

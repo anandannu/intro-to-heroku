@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:attribute name="message" type="Integer" />
+    {!v.message + ' Thanks.'}
+</aura:component>

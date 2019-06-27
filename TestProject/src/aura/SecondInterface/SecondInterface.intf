@@ -1,0 +1,4 @@
+<aura:interface description="Interface template">
+	<aura:attribute name="message" type="String" default="this is second interface" 
+                    description="An example attribute."/>
+</aura:interface>

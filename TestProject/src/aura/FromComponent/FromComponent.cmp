@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:isUrlAddressable" 
+                			access="global">
+    
+    <lightning:navigation aura:id="navigateToOther"/>
+    Hello World, this is !
+    <lightning:button label="Take me up to Cmp" onclick="{!c.OtherComponent}"/>
+	
+</aura:component>

@@ -1,0 +1,30 @@
+<aura:component >
+    <aura:attribute name="picklistValues" type="object"/>
+    <aura:attribute name="recordLead" type="Lead"/>
+    <aura:attribute name="recordError" type="String"/>
+    <c:picklistvalues sObjectName="Lead"
+                      sObjectFields="Status"
+                      picklistValues="{!v.picklistValues}" />
+    
+    <force:recordData aura:id="leadId"
+                      recordId="{!v.recordId}"
+                      targetFields="{!v.recordLead}"
+                      fields="Name,Status,Company,Email"
+                      TargetError="{!v.recordError}"
+                      mode="EDIT"/>
+    
+    <aura:handler name="Init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:input aura:id="LeadName" required="true" label="Lead Name" name="leadName"/>
+    <lightning:input aura:id="LeadEmail"  label="Lead Email" name="leadEmail" type="Email"/>
+    <lightning:input aura:id="LeadCompany" required="true" label="Company" name="leadCompany"/>
+    
+    <lightning:select aura:id="leadStatus" name="leadStatus" label="Status">
+        <aura:iteration items="{!v.picklistValues}" var="item">
+        	<option value="{!item}">{!item}</option>
+        </aura:iteration>
+    </lightning:select>
+    
+    <lightning:button variant="neutral" label="Cancel"/>
+    <lightning:button variant="Brand" label="Save"/>
+</aura:component>

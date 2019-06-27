@@ -1,0 +1,4 @@
+<aura:component >
+    <aura:registerEvent name="findOutEvent" type="c:Evtitems" />
+    <lightning:button name="btn" label="click me" onclick="{!c.callHandler}"/>
+</aura:component>

@@ -1,0 +1,13 @@
+<aura:component controller="LeadSearchController">
+   
+    <aura:attribute name="contact" type="String"/>
+    <lightning:input name="search" label="search" type="search" value="{!v.contact}"/>
+    <lightning:button label="submit" variant="brand" onclick="{!c.searchLeads}"/>
+    <aura:attribute name="ContactList" type="Lead[]"/>
+    <aura:iteration items="{!v.ContactList}" var="con">
+    	<p>{!con.Id}</p>
+		<p>{!con.Name}</p>
+        <p>{!con.Email}</p>
+    </aura:iteration>
+    
+</aura:component>

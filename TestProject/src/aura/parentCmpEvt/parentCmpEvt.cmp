@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="message" type="String" />
+    <aura:handler name="findOutEvent" event="c:Evtitems" action="{!c.handler}"/>
+    <c:childCmpEvt/>
+    
+    {!v.message}
+</aura:component>

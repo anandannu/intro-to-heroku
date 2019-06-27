@@ -1,0 +1,9 @@
+<apex:page standardController="Lead" readOnly="true">
+    <apex:form >
+	<apex:pageBlock rendered="{!$ObjectType.Lead.accessible}">
+		<p>This text will display if you can see the Lead object.</p>
+        
+        <apex:inputText label="Name"/>
+	</apex:pageBlock>
+    </apex:form>
+</apex:page>

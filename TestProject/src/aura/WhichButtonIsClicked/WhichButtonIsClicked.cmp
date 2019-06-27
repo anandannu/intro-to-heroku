@@ -1,0 +1,7 @@
+<aura:component controller="whichButtonIsClickedCon">
+    <aura:attribute name="message" type="String"/>
+    <lightning:button label="Yes" onclick="{!c.CallYes}"/>
+    <Lightning:button label="No" onclick="{!c.CallNo}"/>
+    
+    {!v.message}
+</aura:component>

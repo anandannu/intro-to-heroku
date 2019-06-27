@@ -1,0 +1,55 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride"
+                access="global">
+    
+    <aura:attribute name="NewAccountRec" type="Object"/>
+    <aura:attribute name="NewAccountField" type="object"/>
+    <aura:attribute name="AccountError" type="String"/>
+    <aura:attribute name="progress" type="String"/>
+    
+    <force:recordData aura:id="AccountId"
+                      layoutType="FULL"
+                      targetRecord="{!v.NewAccountRec}"
+                      targetFields="{!v.NewAccountField}"
+                      targetError="{!v.AccountError}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="demo-only" style="height: 640px;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        <lightning:icon iconName="standard:Account" title="Account New"/>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal Header</h2>
+                </header>
+                  
+                <lightning:progressIndicator currentStep="{!v.progress}" type="base" hasError="true" variant="base">
+                    <lightning:progressStep label="Step 1" value="Step1"/>
+                    <lightning:progressStep label="Step 2" value="Step2"/>
+                    <lightning:progressStep label="Step 3" value="Step3"/>
+                </lightning:progressIndicator>
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div aura:id ="StepOne">
+                    	<lightning:input value="{!v.NewAccountField.Name}" label="Name"/>
+                        <lightning:button label="Next" onclick="{!c.StepOne}" variant="brand"/>
+                    </div>
+                    <div aura:id ="StepTwo">
+                    	<lightning:input value="{!v.NewAccountField.AccountNumber}" label="Account Number"/>
+                        <lightning:button label="Next" onclick="{!c.StepTwo}" variant="brand"/>
+                    </div>
+                    <div aura:id ="StepThree">
+                    	<lightning:input value="{!v.NewAccountField.Description}" label="description"/>
+                        <lightning:button label="Save" onclick="{!c.SaveRecord}" variant="brand"/>
+                    </div>                    
+                </div>
+                <footer class="slds-modal__footer">
+                   
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+</aura:component>

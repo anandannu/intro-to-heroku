@@ -1,0 +1,13 @@
+<apex:page >
+    Hello
+    <script>
+    var lexorigin = "https://trainingbcg-dev-ed.lightning.force.com";
+    window.addEventListener("message" ,function(event){
+    	if(event.origin !== lexorigin){
+        	return;
+        }
+        console.log('data '+event.data);
+    } ,false)
+    
+    </script>
+</apex:page>

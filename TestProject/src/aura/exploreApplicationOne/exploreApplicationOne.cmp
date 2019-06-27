@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:registerEvent name="AppEvt" type="c:exploreApplicationEvt"/> 
+    
+    <lightning:button label="App Button" variant="brand" onclick="{!c.oneHandler}"/>
+</aura:component>

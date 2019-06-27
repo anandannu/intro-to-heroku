@@ -1,0 +1,5 @@
+<apex:page standardController="Account" extensions="SetTags" recordSetVar="Account">
+    <apex:pageBlock >
+    	{!MyRecordsSize}
+    </apex:pageBlock>
+</apex:page>

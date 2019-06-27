@@ -1,0 +1,14 @@
+<apex:page controller="ActionFunClass">
+    <script>
+    	window.onload = function () {
+        
+          callApex('Hii, I am Anand');
+        }
+    </script>
+    <apex:outputText value="{!msg}" id="out"/>
+    <apex:form >
+        <apex:actionFunction action="{!methodOne}" name="callApex" rerender="out">
+        <apex:param name="firstParam" assignTo="{!msg}" value="" />
+    </apex:actionFunction>  
+    </apex:form>
+</apex:page>

@@ -1,0 +1,63 @@
+<aura:component controller="leadController">
+    
+    <!--page header -->
+    
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="lead">
+                            <lightning:icon iconName="utility:lead" /> 
+                            <span class="slds-assistive-text">Leads</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Lead From</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Leads</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+	<aura:attribute name="leadform" type="Lead" default="{'SobjectType':'Lead',
+                                                         'Name':'',
+                                                         'Company':'',
+                                                         'Email':'',
+                                                         'MobilePhone': ''}"/>
+                    
+	<!-- Create new Lead Form -->
+	<form class="slds-form--stacked">
+     <lightning:input aura:id="newlead" name="name" 
+                     					label="Name" 
+                     					value="{!v.leadform.Name}"
+                     					required="true" />
+        
+     <lightning:input aura:id="newlead" name="lastname" 
+                     					label="LastName" 
+                     					value="{!v.leadform.Company}"
+                     					required="true" />
+
+    <lightning:input aura:id="newlead" name="email" 
+                     					type="email"
+                     					label="Email" 
+                     					value="{!v.leadform.Email}" />
+
+	<lightning:input aura:id="newlead" name="mobile" 
+                     					type="tel"
+                     					label="Mobile" 
+                     value="{!v.leadform.mobilePhone}" /><br/>
+
+	<lightning:button variant="brand" label="Submit" 
+                      				  onclick="{!c.createLead}"/>
+
+    </form>
+</aura:component >

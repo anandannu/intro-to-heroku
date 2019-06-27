@@ -1,0 +1,34 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="recordId" Type="String" />
+    <aura:attribute name="targetRec" Type="Object" />
+    <aura:attribute name="targetSimple" Type="Object" />
+    <aura:attribute name="Error" Type="String" />
+    
+    <force:recordData aura:id="record"
+                     recordId="recordId"
+                     layoutType="FULL"
+                     fields="Name,Email,Company,id"
+                     targetRecord="{!v.targetRec}"
+                     targetFields="{!v.targetSimple}"
+                     targetError="{!v.Error}"/>
+    
+    <div class="Record Deatil">
+    	<lightning:card iconName="standard:lead" title="{!v.targetSimple.Name}">
+        	<div class="slds-p-horizantal--small">
+            	<p class="slds-text-heading--small">
+                    <lightning:formattedText value="{!v.targetSimple.Email}"/>
+                </p>
+                <p class="slds-text-heading--small">
+                	<lightning:formattedText value="{!v.targetSimple.Company}"/>
+                </p>
+            </div>
+        </lightning:card>
+    </div>
+    
+    <aura:if isTrue="{!not(empty(v.Error))}">
+    	<div class="error">
+        	{!v.Error}
+        </div>
+    </aura:if>
+</aura:component>

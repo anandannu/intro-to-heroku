@@ -1,0 +1,9 @@
+<apex:page Controller="ClassTest">
+    <apex:form >
+    <apex:outputPanel id="out">
+        <apex:outputText value="Click Me!: {!count}"/>
+        <apex:actionSupport event="onclick" action="{!methodOne}" rerender="out" status="outId"/>
+        <apex:actionStatus id="outId" startText=" (incrementing...)" stopText=" (done)"/>
+    </apex:outputPanel>
+    </apex:form>
+</apex:page>

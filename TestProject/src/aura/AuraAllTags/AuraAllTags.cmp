@@ -1,0 +1,28 @@
+<aura:component >
+    
+    <aura:attribute name="check" type="Boolean" default="false"/> 
+    <aura:attribute name="message" type="List" default="['HIII',
+                                                        ' My Name is',
+                                                        ' Anand Yadav',
+                                                        ' from Indore']"/>
+    <aura:if isTrue="{!v.check}">
+        <p>this is true block</p>
+        <aura:set attribute="else">
+        <p>this is false block</p>
+        </aura:set>
+    </aura:if> 
+    
+    <aura:iteration items="{!v.message}" var="msg">
+        {!msg}
+    </aura:iteration>
+    <br/>
+    
+    
+    <aura:renderIf isTrue="{!v.check}">
+        True
+        <aura:set attribute="else">
+            False
+        </aura:set>
+    </aura:renderIf> 
+
+</aura:component>

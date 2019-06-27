@@ -1,0 +1,47 @@
+<aura:component >
+    <aura:attribute name="caseId" type="Id"/>
+    <aura:attribute name="SimpleRecord" type="case"/>
+    <aura:attribute name="remoteId" type="Id"/>
+    <aura:attribute name="showDialoge" type="String" default="false"/>
+    
+	<force:recordData aura:id="getIndivisualCase"
+                      recordId="{!v.caseId}"
+                      targetFields="{!v.SimpleRecord}"
+                      fields="CaseNumber,Status,Origin,Priority"/>
+    
+    <div class="Indivisaul Case">
+		<ul class="slds-grid slds-wrap">
+        	<li class="slds-list__item slds-size_1-of-2">
+            	<span class="slds-text-color_weak slds-m-right_small">
+                	case Number :
+                </span>
+                <a onclick="{!c.goToRec}">
+                	<span class="slds-text-heading_small slds-m-bottom_xx-small">
+                    	{!v.SimpleRecord.CaseNumber}
+                    </span>
+                </a>
+                <lightning:buttonIcon iconName="utility:edit"
+                                      variant="bare"
+                                      onclick="{!c.editRecord}"/>
+            </li>
+            <li class="slds-list__item slds-size_1-of-2">
+            	<span class="slds-text-color_weak slds-m-right_small">
+                	Status :
+                </span>
+                    {!v.SimpleRecord.Status}
+            </li>
+            <li class="slds-list__item slds-size_1-of-2">
+            	<span class="slds-text-color_weak slds-m-right_small">
+                	Origin :
+                </span>
+                    {!v.SimpleRecord.Origin}
+            </li>
+            <li class="slds-list__item slds-size_1-of-2">
+            	<span class="slds-text-color_weak slds-m-right_small">
+                	Priority :
+                </span>
+                    {!v.SimpleRecord.Priority}
+            </li>
+        </ul>    
+    </div>
+</aura:component>

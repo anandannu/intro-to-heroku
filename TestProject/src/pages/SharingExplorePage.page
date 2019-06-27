@@ -1,0 +1,8 @@
+<apex:page controller="mySharingExplore">
+	<apex:pageBlock >
+    	<apex:pageBlockTable value="{!account}" var="acc">
+        	<apex:column value="{!acc.id}"/>
+            <apex:column value="{!acc.Name}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>  
+</apex:page>
